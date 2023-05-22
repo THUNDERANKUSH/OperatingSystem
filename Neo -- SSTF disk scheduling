@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<math.h>
+#include<iostream>
+#define MAX 99999
+
+int minpos(int d[],int n)
+{
+	int i,t,j;
+	i=0;
+	t=d[0];
+	for(j=1;j<n;j++)
+	  if(d[j]<t)
+	  {
+	  	t=d[j];
+	  	i=j;
+	  }
+	  return i;
+}
+int main()
+{
+	int cp,n,a[100],dm=0,i,j,d[100],f[100];
+	std::cin>>cp;
+	std::cin>>n;
+	for(i=0;i<n;i++)
+	{
+		  std::cin>>a[i];
+		  f[i]=-1;
+    }
+	for(i=0;i<n;i++)
+	 d[i]=abs(cp-a[i]);
+	
+	for(i=0;i<n;i++)
+	{
+		j=minpos(d,n);
+		dm+=abs(cp-a[j]);
+		//std::cout<<a[j]<<"\n""";
+		cp=a[j];
+		f[j]=1;
+		for(j=0;j<n;j++)
+		  if(f[j]==-1)
+		     d[j]=abs(cp-a[j]);
+		  else
+		      d[j]=MAX;
+		
+	}
+	 
+    std::cout<<dm;
+	return 0;
+}
