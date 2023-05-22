@@ -1,0 +1,11 @@
+read n
+i=0
+sum=0
+while [ $i -lt $n ];
+do
+  read a
+  sum=$(expr $sum + $a)
+  i=$(expr $i + 1)
+done
+average=$(expr $sum / $n)
+echo $average
