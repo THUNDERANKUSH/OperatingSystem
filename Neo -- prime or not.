@@ -1,0 +1,17 @@
+read n
+i=2
+while [ $i -lt $n ];
+do
+   if [ $(expr $n % $i) -eq 0 ]; 
+   then
+       i=$(expr $n + 1)
+       break
+    fi
+    i=$(expr $i + 1)
+done
+if [ $i -eq $n ]
+  then
+   echo "Prime"
+ else
+   echo "Not Prime"
+fi
