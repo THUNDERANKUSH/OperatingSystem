@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Read the input number
+echo "Enter a number:"
+read number
+
+# Initialize sum to 0
+sum=0
+
+# Convert number to string
+number_str="$number"
+
+# Loop through each digit in the string
+for (( i=0; i<${#number_str}; i++ )); do
+    # Get the current digit
+    digit=${number_str:i:1}
+
+    # Add the digit to the sum
+    sum=$((sum + digit))
+done
+
+# Print the sum of digits
+echo "Sum of the digits of $number is $sum"
